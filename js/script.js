@@ -4,6 +4,10 @@ Utilizzando i dati forniti, creare un array di oggetti per rappresentare i membr
 Ogni membro è caratterizzato dalle seguenti informazioni: nome, ruolo e foto.
 */
 
+//* VARIABILI GLOBALI
+
+const teamElement = document.getElementById("team");
+
 // Creare l’array di oggetti con le informazioni fornite. //* (MILESTONE 0)
 
 const team = [
@@ -50,3 +54,15 @@ for (let i = 0; i < team.length; i++) {
     console.log("Role: " + team[i].role);
     console.log("Tag img: " + team[i].img);
 }
+
+// Stampare le stesse informazioni su DOM sottoforma di stringhe. //* (MILESTONE 2)
+
+let memberInfo = "<ul>";
+
+for (let i = 0; i < team.length; i++) {
+    const teamMember = team[i];
+    memberInfo += `<li><strong>Name</strong>: ${team[i].name} | <strong>Role</strong>: ${team[i].role} | <strong>Tag img</strong>: ${team[i].img}</li>`;
+}
+
+memberInfo += "</ul>";
+teamElement.innerHTML = memberInfo;
