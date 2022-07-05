@@ -40,7 +40,7 @@ const team = [
         name: "Barbara Ramos",
         role: "Graphic Designer",
         img: "barbara-ramos-graphic-designer.jpg ",
-    },
+    }
 ];
 
 //* BONUS
@@ -49,7 +49,7 @@ const team = [
 for (let i = 0; i < team.length; i++) {
     // Creo il div con la classe della colonna di bootstrap
     const memberCol = document.createElement("div");
-    memberCol.classList.add("col-4");
+    memberCol.classList.add("col-12", "col-sm-4", "text-center", "text-sm-start");
     // Creo il tag figure
     const memberFigure = document.createElement("figure");
     // Creo il tag img con src e alt tag rifacendomi ai valori delle chiavi degli object

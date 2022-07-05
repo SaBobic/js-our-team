@@ -13,7 +13,8 @@ img {
 
 h2,
 h3 {
-    font-weight: 300;
+    font-weight: 700;
+    color: #fff;
 }
 
 h2 {
@@ -24,15 +25,35 @@ h3 {
     font-size: 18px;
 }
 
+p {
+    font-size: 21px;
+}
+
 /** Utilities */
 
-.my_container {
+.my_width {
+    max-width: 80%;
     margin: 30px auto;
-    max-width: 1000px;
 }
 
 /** Figure */
 
-#team img {
-    margin-bottom: 30px;
+#team img:hover {
+    filter: brightness(0.5);
+}
+
+
+#team figure{
+    position: relative;
+}
+
+#team figcaption{
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+}
+
+#team figure:hover figcaption{
+    display: block;
 }
