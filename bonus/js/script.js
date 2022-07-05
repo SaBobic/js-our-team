@@ -43,26 +43,35 @@ const team = [
     },
 ];
 
-// Stampare su console le informazioni di nome, ruolo e la stringa della foto. //* (MILESTONE 1)
+//* BONUS
+// Organizzare i singoli membri in card/schede e ispirarci alle grafiche in allegato.
 
 for (let i = 0; i < team.length; i++) {
-    const teamMember = team[i];
-    console.log(`
-    ----------TEAM MEMBER----------
-    `);
-    console.log("Name: " + team[i].name);
-    console.log("Role: " + team[i].role);
-    console.log("Tag img: " + team[i].img);
+    // Creo il div con la classe della colonna di bootstrap
+    const memberCol = document.createElement("div");
+    memberCol.classList.add("col-4");
+    // Creo il tag figure
+    const memberFigure = document.createElement("figure");
+    // Creo il tag img con src e alt tag rifacendomi ai valori delle chiavi degli object
+    const memberImg = document.createElement("img");
+    memberImg.src = `img/${team[i].img}`;
+    memberImg.alt = `${team[i].name}, ${team[i].role}`;
+    // Creo il tag figcaption
+    const memberCaption = document.createElement("figcaption");
+    // Creo il tag h2 con innerText nome del membro
+    const memberName = document.createElement("h2");
+    memberName.innerText = `${team[i].name}`;
+    // Creo il tag h3 con innerText ruolo del membro
+    const memberRole = document.createElement("h3");
+    memberRole.innerText = `${team[i].role}`;
+    // Inserisco h2 e h3 nel tag figcaption
+    memberCaption.appendChild(memberName);
+    memberCaption.appendChild(memberRole);
+    // Inserisco immagine e caption nel tag figure
+    memberFigure.appendChild(memberImg);
+    memberFigure.appendChild(memberCaption);
+    // Inserisco il tag figure nella colonna
+    memberCol.appendChild(memberFigure);
+    // Mostro la colonna su schermo
+    teamElement.appendChild(memberCol);
 }
-
-// Stampare le stesse informazioni su DOM sottoforma di stringhe. //* (MILESTONE 2)
-
-let memberInfo = "<ul>";
-
-for (let i = 0; i < team.length; i++) {
-    const teamMember = team[i];
-    memberInfo += `<li><strong>Name</strong>: ${team[i].name} | <strong>Role</strong>: ${team[i].role} | <strong>Tag img</strong>: ${team[i].img}</li>`;
-}
-
-memberInfo += "</ul>";
-teamElement.innerHTML = memberInfo;
